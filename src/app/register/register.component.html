@@ -1,0 +1,99 @@
+<a class="nav-link" href="#" routerLink="/home">
+  <button type="button" class="btn btn-primary">Home</button>
+</a>
+<div class="container result">
+    <h3>{{verificationform}}</h3>
+</div>
+<div class="container">
+  <div id="login-row" class="row justify-content-center align-items-center">
+      <div id="login-column" class="col-md-6">
+          <div class="box">
+              <div class="shape1"></div>
+              <div class="shape2"></div>
+              <div class="shape3"></div>
+              <div class="shape4"></div>
+              <div class="shape5"></div>
+              <div class="shape6"></div>
+              <div class="shape7"></div>
+              <div class="float">
+                  <form class="form" novalidate #fo="ngForm"  (ngSubmit)="mySubmit(fo)">
+                      <div class="form-group">
+                          <label for="username" class="text-white">Username:</label><br>
+                          <input type="text" [(ngModel)]="user.username" name="username" id="username"
+                          #myUsername="ngModel" required minlength="4" class="form-control">
+                      </div>
+
+
+                       <!-- Error Div  -->
+                       <div *ngIf="myUsername.errors?.required && myUsername.touched" class="alert alert-danger">
+                        Userame Is Required
+                      </div>
+                      <div *ngIf="myUsername.errors?.minlength && myUsername.touched" class="alert alert-danger">
+                        Min Required 4 Chars
+                      </div>
+
+                      <div class="form-group">
+                          <label for="password" class="text-white">Password:</label><br>
+                          <input type="text" [(ngModel)]="user.password" name="password" id="password"
+                          #myPass="ngModel" required minlength="8" class="form-control">
+                      </div>
+
+                       <!-- Error Div  -->
+                       <div *ngIf="myPass.errors?.required && myPass.touched" class="alert alert-danger">
+                        Password Is Required
+                      </div>
+                      <div *ngIf="myPass.errors?.minlength && myPass.touched" class="alert alert-danger">
+                        Min Required 8 Digits
+                      </div>
+
+
+                      <div class="form-group">
+                          <label for="username" class="text-white">Email:</label><br>
+                          <input type="email" placeholder="example@ex.com" [(ngModel)]="user.email" name="email" id="email"
+                          #myEmail="ngModel" required class="form-control">
+                      </div>
+
+                        <!-- Error Div  -->
+                        <div *ngIf="myEmail.errors?.required && myEmail.touched" class="alert alert-danger">
+                          Email Is Required
+                        </div>
+
+
+                      <div class="form-group">
+                          <label for="username" class="text-white">Address:</label><br>
+                          <input type="text" [(ngModel)]="user.address" name="address" id="address"
+                          #myAddress="ngModel" required minlength="10" class="form-control">
+                      </div>
+
+                      <!-- Error Div  -->
+                      <div *ngIf="myAddress.errors?.required && myAddress.touched" class="alert alert-danger">
+                        Address Is Required
+                      </div>
+                      <div *ngIf="myAddress.errors?.minlength && myAddress.touched" class="alert alert-danger">
+                        Min Required 10 Chars
+                      </div>
+
+
+                      <div class="form-group">
+                          <label for="username" class="text-white">Birthdate:</label><br>
+                          <input type="date" [(ngModel)]="user.birthdate" name="birthdate" id="birthdate"
+                          #myBdate="ngModel" required class="form-control">
+                      </div>
+
+
+                      <!-- Error Div  -->
+                      <div *ngIf="myBdate.errors?.required && myBdate.touched" class="alert alert-danger">
+                        Birthdate Is Required
+                      </div>
+                     
+                      <div class="form-group">
+                        <button type="submit" class="btn btn-info">Submit</button> 
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
